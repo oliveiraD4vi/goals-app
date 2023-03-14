@@ -1,4 +1,4 @@
-import { Button, Text, TextInput, View } from "react-native";
+import { Button, ScrollView, Text, TextInput, View } from "react-native";
 import { style } from "./style";
 import { style as global } from "../../global/style";
 import { useState } from "react";
@@ -23,11 +23,13 @@ export default function Home() {
       </View>
 
       <View>
-        {goalsList.map((goal, goalIndex) => (
-          <View style={style.goalItem} key={goalIndex}>
-            <Text style={{ color: "#fff" }}>{goal}</Text>
-          </View>
-        ))}
+        <ScrollView>
+          {goalsList.map((goal, goalIndex) => (
+            <View style={style.goalItem} key={goalIndex}>
+              <Text style={{ color: "#fff" }}>{goal}</Text>
+            </View>
+          ))}
+        </ScrollView>
       </View>
     </View>
   );
