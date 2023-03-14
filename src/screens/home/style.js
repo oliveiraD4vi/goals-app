@@ -11,4 +11,15 @@ export const style = StyleSheet.create({
     width: "70%",
     paddingHorizontal: 10,
   },
+  goalItem: {
+    borderColor: "#222",
+    borderWidth: 2,
+    backgroundColor: "#222",
+    color: "#fff",
+    paddingVertical: 5,
+    paddingHorizontal: 12,
+    width: 200,
+    alignItems: "center",
+    margin: 5,
+  },
 });
