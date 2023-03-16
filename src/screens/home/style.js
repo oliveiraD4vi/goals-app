@@ -5,6 +5,10 @@ export const style = StyleSheet.create({
     flexDirection: "row",
     marginVertical: 15,
   },
+  goalsContainer: {
+    flex: 1,
+    paddingHorizontal: 10,
+  },
   inputText: {
     borderColor: "#ccc",
     borderWidth: 1,
@@ -18,7 +22,7 @@ export const style = StyleSheet.create({
     color: "#fff",
     paddingVertical: 5,
     paddingHorizontal: 12,
-    width: 200,
+    minWidth: 250,
     alignItems: "center",
     margin: 5,
   },

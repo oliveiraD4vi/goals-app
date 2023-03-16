@@ -1,4 +1,4 @@
-import { Button, ScrollView, Text, TextInput, View } from "react-native";
+import { Button, FlatList, Text, TextInput, View } from "react-native";
 import { style } from "./style";
 import { style as global } from "../../global/style";
 import { useState } from "react";
@@ -8,7 +8,13 @@ export default function Home() {
   const [goalsList, setGoalsList] = useState([]);
 
   const clickHandler = () => {
-    setGoalsList((current) => [...current, inputValue]);
+    setGoalsList((current) => [
+      ...current,
+      {
+        id: Math.random().toString(),
+        text: inputValue,
+      },
+    ]);
   };
 
   return (
@@ -22,14 +28,18 @@ export default function Home() {
         <Button title="Add Goal" onPress={clickHandler} />
       </View>
 
-      <View>
-        <ScrollView>
-          {goalsList.map((goal, goalIndex) => (
-            <View style={style.goalItem} key={goalIndex}>
-              <Text style={{ color: "#fff" }}>{goal}</Text>
-            </View>
-          ))}
-        </ScrollView>
+      <View style={style.goalsContainer}>
+        <FlatList
+          data={goalsList}
+          keyExtractor={(item, index) => item.id}
+          renderItem={({ item: goal }) => {
+            return (
+              <View style={style.goalItem}>
+                <Text style={{ color: "#fff" }}>{goal}</Text>
+              </View>
+            );
+          }}
+        />
       </View>
     </View>
   );
